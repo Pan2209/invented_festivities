@@ -29,6 +29,12 @@ export class InvFestsService {
     }); //BUSCAR POR CONTINENTE
   }
 
+  findByCountryFestivities(beginCountry:string){
+    return this.orm.invented_festivities.findMany({
+      where: { beginCountry },
+  });
+}
+
   findByDayFestivities(dayFest: number) {
     return this.orm.invented_festivities.findMany({
       where: { dayFest },
