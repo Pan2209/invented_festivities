@@ -14,8 +14,6 @@ data:{
     beginCountry: 'Italia',
     continent: 'Europa',
 }
-
-
   })
 
 

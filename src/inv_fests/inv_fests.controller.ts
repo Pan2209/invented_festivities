@@ -15,42 +15,37 @@ export class InvFestsController {
   @Post()
   create(@Body() createInvFestDto: CreateInvFestDto) {
     return this.invFestsService.create(createInvFestDto);
-  }
-  @ApiTags('SEARCH BY TITLE')
-  @Get(':title')
-  findByTitle(@Param('title')title:string){
+  }@ApiTags('SEARCH BY TITLE')
+  @Get('title/:title')
+  findByTitle(@Param('title') title: string) {
     return this.invFestsService.findByTitleFestivities(title);
   }
-
- 
-
-
-  @ApiTags ('SEARCH BY DAY')
-@Get(':dayFest')
-findByDayFest(@Param('dayFest') dayFest:number){
-  return this.invFestsService.findByDayFestivities(+dayFest)
-}//Buscar por dia
-
-
-@ApiTags ('SEARCH BY MONTH')
-@Get(':monthFest')
-findByMonth(@Param('monthFest') monthFest:string){
-  return this.invFestsService.findByMonthFestivities(monthFest)
-  }//Buscar por mes
-
-@ApiTags ('SEARCH BY COUNTRY')
-@Get(':beginCountry')
-findByCountry(@Param('beginCountry') beginCountry: string) {
-  return this.invFestsService.findByCountryFestivities(beginCountry);
-}
-
- @ApiTags ('SEARCH BY CONTINENT')
-   @Get(':continent')
+  
+  @ApiTags('SEARCH BY DAY')
+  @Get('day/:dayFest')
+  findByDayFest(@Param('dayFest') dayFest: number) {
+    return this.invFestsService.findByDayFestivities(+dayFest);
+  }
+  
+  @ApiTags('SEARCH BY MONTH')
+  @Get('month/:monthFest')
+  findByMonth(@Param('monthFest') monthFest: string) {
+    return this.invFestsService.findByMonthFestivities(monthFest);
+  }
+  
+  @ApiTags('SEARCH BY COUNTRY')
+  @Get('country/:beginCountry')
+  findByCountry(@Param('beginCountry') beginCountry: string) {
+    return this.invFestsService.findByCountryFestivities(beginCountry);
+  }
+  
+  @ApiTags('SEARCH BY CONTINENT')
+  @Get('continent/:continent')
   findByContinent(@Param('continent') continent: string) {
     return this.invFestsService.findByContinentFestivities(continent);
-  }//BUSCAR POR CONTINENTE
-
-@ApiTags ('SEARCH BY ID')
+  }
+  
+  @ApiTags('SEARCH BY ID')
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.invFestsService.findOne(+id);
